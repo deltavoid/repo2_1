@@ -61,7 +61,7 @@ set(PACKAGE_FILE_NAME Repo2_1)
 #  libraries
 install(
     TARGETS
-        repo2_1_library1
+        library1
         # library1_1
     EXPORT ${PACKAGE_PATH_NAME}-export
     LIBRARY DESTINATION lib/${PACKAGE_PATH_NAME}

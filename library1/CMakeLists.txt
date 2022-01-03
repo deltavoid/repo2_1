@@ -32,10 +32,13 @@ message("CMAKE_CURRENT_LIST_DIR: ${CMAKE_CURRENT_LIST_DIR}")
 #         $<INSTALL_INTERFACE:include>
 # )
 
-add_library(repo2_1_library1 STATIC
+add_library(library1 STATIC
     library1.c
 )
-target_include_directories(repo2_1_library1
+set_target_properties(library1 PROPERTIES 
+    OUTPUT_NAME repo2_1_library1
+)
+target_include_directories(library1
     PUBLIC
         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/../>
         $<INSTALL_INTERFACE:include>
