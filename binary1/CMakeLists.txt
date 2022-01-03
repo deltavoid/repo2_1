@@ -22,11 +22,11 @@ message("CMAKE_CURRENT_LIST_DIR: ${CMAKE_CURRENT_LIST_DIR}")
 
 # targets and directories
 
-add_executable(repo2_1_binary1
+add_executable(binary1
     binary1.c
 )
 
-target_link_libraries(repo2_1_binary1
+target_link_libraries(binary1
     library1
     # library1_1
 )
