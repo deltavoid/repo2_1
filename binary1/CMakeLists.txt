@@ -28,5 +28,4 @@ add_executable(binary1
 
 target_link_libraries(binary1
     library1
-    # library1_1
 )

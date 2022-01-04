@@ -22,15 +22,6 @@ message("CMAKE_CURRENT_LIST_DIR: ${CMAKE_CURRENT_LIST_DIR}")
 
 # targets and directories
 
-# add_library(library1 STATIC
-#     library1.c
-# )
-# target_include_directories(library1
-#     PUBLIC
-#         # ../../
-#         $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/../>
-#         $<INSTALL_INTERFACE:include>
-# )
 
 add_library(library1 STATIC
     library1.c
