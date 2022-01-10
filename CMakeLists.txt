@@ -90,7 +90,7 @@ install(
 
 
 
-#  targets
+# package targets
 install(
     EXPORT ${PACKAGE_PATH_NAME}-export
     FILE ${PACKAGE_FILE_NAME}Targets.cmake
@@ -108,14 +108,13 @@ export(
 # export(PACKAGE Repo1)
 
 
-
+#  package config
 
 include(CMakePackageConfigHelpers)
 
 
-#  package config
 configure_package_config_file(
-    ${CMAKE_CURRENT_LIST_DIR}/${PACKAGE_FILE_NAME}Config.cmake.in
+    ${CMAKE_CURRENT_LIST_DIR}/PackageConfig.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/${PACKAGE_FILE_NAME}Config.cmake
     INSTALL_DESTINATION lib/cmake/${PACKAGE_PATH_NAME}
 )
@@ -124,6 +123,16 @@ configure_package_config_file(
 install(
   FILES ${CMAKE_CURRENT_BINARY_DIR}/${PACKAGE_FILE_NAME}Config.cmake
   DESTINATION lib/cmake/${PACKAGE_PATH_NAME}
+)
+
+
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/PackageDependency.cmake
+    DESTINATION ${CMAKE_BINARY_DIR}/
+)
+
+install(
+  FILES ${CMAKE_CURRENT_LIST_DIR}/PackageDependency.cmake
+  DESTINATION lib/cmake/${PACKAGE_PATH_NAME}/
 )
 
 
@@ -138,4 +147,5 @@ install(
   FILES ${CMAKE_CURRENT_BINARY_DIR}/${PACKAGE_FILE_NAME}ConfigVersion.cmake
   DESTINATION lib/cmake/${PACKAGE_FILE_NAME}
 )
+
 
