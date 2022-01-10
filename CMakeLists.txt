@@ -114,7 +114,7 @@ include(CMakePackageConfigHelpers)
 
 
 configure_package_config_file(
-    ${CMAKE_CURRENT_LIST_DIR}/PackageConfig.cmake.in
+    ${CMAKE_CURRENT_LIST_DIR}/${PACKAGE_FILE_NAME}Config.cmake.in
     ${CMAKE_CURRENT_BINARY_DIR}/${PACKAGE_FILE_NAME}Config.cmake
     INSTALL_DESTINATION lib/cmake/${PACKAGE_PATH_NAME}
 )
@@ -126,12 +126,12 @@ install(
 )
 
 
-file(COPY ${CMAKE_CURRENT_LIST_DIR}/PackageDependency.cmake
+file(COPY ${CMAKE_CURRENT_LIST_DIR}/${PACKAGE_FILE_NAME}Dependency.cmake
     DESTINATION ${CMAKE_BINARY_DIR}/
 )
 
 install(
-  FILES ${CMAKE_CURRENT_LIST_DIR}/PackageDependency.cmake
+  FILES ${CMAKE_CURRENT_LIST_DIR}/${PACKAGE_FILE_NAME}Dependency.cmake
   DESTINATION lib/cmake/${PACKAGE_PATH_NAME}/
 )
 
