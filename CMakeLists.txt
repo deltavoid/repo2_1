@@ -99,13 +99,13 @@ install(
 )
 
 
-# export(
-#     EXPORT repo1-export
-#     FILE ${CMAKE_CURRENT_BINARY_DIR}/Repo1Targets.cmake
-#     NAMESPACE Repo1::
-# )
+export(
+    EXPORT ${PACKAGE_PATH_NAME}-export
+    FILE ${CMAKE_CURRENT_BINARY_DIR}/${PACKAGE_FILE_NAME}Targets.cmake
+    NAMESPACE ${PACKAGE_FILE_NAME}::
+)
 
-# # export(PACKAGE Repo1)
+# export(PACKAGE Repo1)
 
 
 

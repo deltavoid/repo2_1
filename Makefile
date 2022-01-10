@@ -4,6 +4,16 @@ PACKAGE_NAME=repo2_1
 
 
 
+ifdef USE_USER_LIB
+    CMAKE_PREIFX_PATH=""
+    CMAKE_MODULE_PATH=""
+else
+    CMAKE_PREIFX_PATH=""
+    CMAKE_MODULE_PATH=""
+endif
+
+
+
 BUILD_DIR ?= build
 .PHONY: build clean
 # default: run
@@ -16,7 +26,10 @@ build: $(BUILD_DIR)/Makefile
 
 $(BUILD_DIR)/Makefile: Makefile
 	mkdir -p $(BUILD_DIR) \
-	&& cmake -S . -B $(BUILD_DIR) 
+	&& cmake -S . -B $(BUILD_DIR) \
+	    -DCMAKE_PREFIX_PATH=$(CMAKE_PREFIX_PATH) \
+		-DCMAKE_MODULE_PATH=$(CMAKE_MODULE_PATH)
+
 
 clean:	
 	rm -rf $(BUILD_DIR)
