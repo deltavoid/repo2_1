@@ -28,7 +28,55 @@ message("CMAKE_TOOLCHAIN_FILE: ${CMAKE_TOOLCHAIN_FILE}")
 
 # configurations
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+
+
+
+function(echo_target_property tgt prop)
+
+    get_target_property(prop_val ${tgt} ${prop})
+    message(${tgt} ", " ${prop} ": " ${prop_val})
+
+endfunction()
+
+
+function(echo_target tgt)
+  if(NOT TARGET ${tgt})
+    message("There is no target named '${tgt}'")
+    return()
+  endif()
+ 
+  set(props
+    OUTPUT_NAME
+    TYPE
+    SOURCES
+    VERSION
+    BUNDLE
+    COMPILE_DEFINITIONS
+    COMPILE_FLAGS
+    COMPILE_OPTIONS
+    INCLUDE_DIRECTORIES
+    LINKER_LANGUAGE
+    LINK_DEPENDS
+    LINK_FLAGS
+    LINK_LIBRARIES
+    LINK_INTERFACE_LIBRARIES
+    DEFINE_SYMBOL
+    HAS_CXX
+    IMPORTED
+    IMPORTED_LINK_DEPENDENT_LIBRARIES
+    IMPORTED_LINK_INTERFACE_LIBRARIES
+    PRIVATE_HEADER
+    PUBLIC_HEADER
+    INSTALL_RPATH
+  )
+ 
+  foreach(p ${props})
+    echo_target_property("${tgt}" "${p}")
+  endforeach()
+
+endfunction()
 
 
 

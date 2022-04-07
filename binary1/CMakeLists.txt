@@ -29,3 +29,5 @@ add_executable(binary1
 target_link_libraries(binary1
     library1
 )
+
+echo_target(binary1)
