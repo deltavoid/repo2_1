@@ -193,7 +193,7 @@ write_basic_package_version_file(
 
 install(
   FILES ${CMAKE_CURRENT_BINARY_DIR}/${PACKAGE_FILE_NAME}ConfigVersion.cmake
-  DESTINATION lib/cmake/${PACKAGE_FILE_NAME}
+  DESTINATION lib/cmake/${PACKAGE_PATH_NAME}
 )
 
 
